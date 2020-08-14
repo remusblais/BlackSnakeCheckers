@@ -1,2 +1,2 @@
 # BlackSnakeCheckers
-Checkers (sometime commonly name Draughts) game written in Python (CLI) and Tkinter (GUI)
+Checkers (commonly name Draughts for british) game written in Python (CLI) and Tkinter (GUI)
