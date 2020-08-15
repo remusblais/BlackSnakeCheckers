@@ -1,4 +1,5 @@
 class Board:
+
     def __init__(self, x_spaces, y_spaces):
         self.x_spaces = x_spaces
         self.y_spaces = y_spaces
