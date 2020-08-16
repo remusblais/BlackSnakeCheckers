@@ -1,8 +1,8 @@
 class Board:
 
-    def __init__(self, x_spaces, y_spaces):
-        self.x_spaces = x_spaces
-        self.y_spaces = y_spaces
+    def __init__(self, rows, columns):
+        self.x_spaces = columns
+        self.y_spaces = rows
 
         self.spaces = {
             (7, 0): 'o',
@@ -39,19 +39,19 @@ class Board:
         cross_bar = '\u253c'  # ┼
 
         boardgame = f' {cross_bar}'
-        for num in range(self.y_spaces):
+        for num in range(self.x_spaces):
             boardgame += f'{hor_bar}{str(num)}{hor_bar}{cross_bar}'
         boardgame += '\n'
 
-        for x in range(0, self.x_spaces):
+        for x in range(0, self.y_spaces):
             row_separator = f'{hor_bar * 3}{cross_bar}'
             boardgame += f'{str(x)}{ver_bar} '
-            for y in range(0, self.y_spaces):
+            for y in range(0, self.x_spaces):
                 if (x, y) in self.spaces:
                     boardgame += str(self.spaces[(x, y)])+" | "
                 else:
                     boardgame += f'  {ver_bar} '
-            boardgame += f'\n {cross_bar}{row_separator * self.y_spaces}\n'
+            boardgame += f'\n {cross_bar}{row_separator * self.x_spaces}\n'
 
         return boardgame
 
