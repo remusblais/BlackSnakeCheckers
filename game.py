@@ -33,11 +33,12 @@ class Game:
         """Behaviour of player's turn
 
          """
-        print(f'{self.board}')
+
         if 1 != 1:
             return self.victory(player)
         else:
             input()
+            print(f'{self.board}')
             return self.turn(player)
 
     def victory(self, player):
