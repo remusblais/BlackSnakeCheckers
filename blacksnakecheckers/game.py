@@ -1,4 +1,6 @@
-from board import Board
+
+from pyfiglet import Figlet
+from blacksnakecheckers.board import Board
 
 class Game:
 
@@ -26,19 +28,18 @@ class Game:
         """Game start here
 
         """
-        print(f'GAME START, GOOD LUCK!!!\n{self.board}')
+        print(Figlet(font='slant').renderText('Test'))
         self.turn(self.player)
 
     def turn(self, player):
         """Behaviour of player's turn
 
          """
-
+        print(f'{self.board}')
         if 1 != 1:
             return self.victory(player)
         else:
             input()
-            print(f'{self.board}')
             return self.turn(player)
 
     def victory(self, player):
@@ -70,11 +71,7 @@ if __name__ == "__main__":
             '22 - Gothic',
             '23 - Invent your own rules!!!']
 
-    print('''
-    *****************************************************************
-    Welcome to the most complete python checkers game in the world!!!
-    *****************************************************************
-    ''')
+    print(Figlet(font='slant').renderText('Black\nSnake\nCheckers'))
     #print(*mode, sep='\n')
     #game = Game(input('Select mode:\n'))
     new_game = Game(1, 8, 8, False, 1)
