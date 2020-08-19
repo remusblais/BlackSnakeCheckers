@@ -1,6 +1,15 @@
+"""
+This is the main module where all game logic between the player(s) and computer occur.
+
+"""
+
+__author__ = "Rémus Blais"
+__version__ = "0.102"
+__date__ = "2020-08-18"
 
 from pyfiglet import Figlet
 from blacksnakecheckers.board import Board
+
 
 class Game:
 
@@ -15,7 +24,7 @@ class Game:
                computer (bool): Play against computer
                difficulty (int): Level of difficulty against computer
 
-           """
+        """
         self.board = Board(rows, columns)
         self.game_mode = game_mode
         self.rows = rows
@@ -35,12 +44,58 @@ class Game:
         """Behaviour of player's turn
 
          """
-        print(f'{self.board}')
+        print(self.board)
         if 1 != 1:
             return self.victory(player)
         else:
-            input()
+            move_source = self.source()
+            move_target = self.target()
             return self.turn(player)
+
+    def source(self):
+        """Ask the player which source he want to play
+
+        """
+        while True:
+            pos_line = input("Source line : ")
+            pos_col = input("Source column : ")
+            '''if pos_line.isdecimal() and pos_col.isdecimal():
+                source = Position(int(pos_line), int(pos_col))
+                source_validation = (self.position_source_valide(source))
+                if not source_validation[0]:
+                    print(source_validation[1])
+                else:
+                    self.source_selected = source
+                    break
+            else:
+                print(error)'''
+
+        #return source
+    
+    def source_validation(self):
+        pass
+    
+    def target(self):
+        """Ask the player which target he's aiming for
+
+        """
+        while True:
+            pos_line = input("Target line : ")
+            pos_col = input("Target column : ")
+            '''if pos_line.isdecimal() and pos_col.isdecimal():
+                target = Position(int(pos_line), int(pos_col))
+                target_validation = (self.position_cible_valide(target))
+                if not target_validation[0]:
+                    print(target_validation[1])
+                else:
+                    break
+            else:
+                print(error)'''
+                
+        #return target
+    
+    def target_validation(self):
+        pass
 
     def victory(self, player):
         print(f'{player}, you are the winner!!')
@@ -71,7 +126,7 @@ if __name__ == "__main__":
             '22 - Gothic',
             '23 - Invent your own rules!!!']
 
-    print(Figlet(font='slant').renderText('Black\nSnake\nCheckers'))
+    print(Figlet(font='slant').renderText('Black\nSnake\nCheckers') + __version__)
     #print(*mode, sep='\n')
     #game = Game(input('Select mode:\n'))
     new_game = Game(1, 8, 8, False, 1)
