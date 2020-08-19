@@ -4,7 +4,7 @@ This is the main module where all game logic between the player(s) and computer 
 """
 
 __author__ = "Rémus Blais"
-__version__ = "0.102"
+__version__ = "0.103"
 __date__ = "2020-08-18"
 
 from pyfiglet import Figlet
@@ -53,7 +53,7 @@ class Game:
             return self.turn(player)
 
     def source(self):
-        """Ask the player which source he want to play
+        """Ask the player which source
 
         """
         while True:
@@ -76,7 +76,7 @@ class Game:
         pass
     
     def target(self):
-        """Ask the player which target he's aiming for
+        """Ask the player which target
 
         """
         while True:
