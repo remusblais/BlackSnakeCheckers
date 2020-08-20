@@ -1,3 +1,5 @@
+from position import Position as Pos
+
 class Board:
 
     def __init__(self, rows, columns):
@@ -5,30 +7,30 @@ class Board:
         self.y_spaces = rows
 
         self.spaces = {
-            (7, 0): 'o',
-            (7, 2): 'o',
-            (7, 4): 'o',
-            (7, 6): 'o',
-            (6, 1): 'o',
-            (6, 3): 'o',
-            (6, 5): 'o',
-            (6, 7): 'o',
-            (5, 0): 'o',
-            (5, 2): 'o',
-            (5, 4): 'o',
-            (5, 6): 'o',
-            (2, 1): 'x',
-            (2, 3): 'x',
-            (2, 5): 'x',
-            (2, 7): 'x',
-            (1, 0): 'x',
-            (1, 2): 'x',
-            (1, 4): 'x',
-            (1, 6): 'x',
-            (0, 1): 'x',
-            (0, 3): 'x',
-            (0, 5): 'x',
-            (0, 7): 'x',
+            Pos(7, 0): 'o',
+            Pos(7, 2): 'o',
+            Pos(7, 4): 'o',
+            Pos(7, 6): 'o',
+            Pos(6, 1): 'o',
+            Pos(6, 3): 'o',
+            Pos(6, 5): 'o',
+            Pos(6, 7): 'o',
+            Pos(5, 0): 'o',
+            Pos(5, 2): 'o',
+            Pos(5, 4): 'o',
+            Pos(5, 6): 'o',
+            Pos(2, 1): 'x',
+            Pos(2, 3): 'x',
+            Pos(2, 5): 'x',
+            Pos(2, 7): 'x',
+            Pos(1, 0): 'x',
+            Pos(1, 2): 'x',
+            Pos(1, 4): 'x',
+            Pos(1, 6): 'x',
+            Pos(0, 1): 'x',
+            Pos(0, 3): 'x',
+            Pos(0, 5): 'x',
+            Pos(0, 7): 'x',
         }
 
     def __repr__(self):
@@ -47,13 +49,19 @@ class Board:
             row_separator = f'{hor_bar * 3}{cross_bar}'
             boardgame += f'{str(x)}{ver_bar} '
             for y in range(0, self.x_spaces):
-                if (x, y) in self.spaces:
-                    boardgame += str(self.spaces[(x, y)])+" | "
+                if Pos(x, y) in self.spaces:
+                    print(112)
+                    boardgame += str(self.spaces[Pos(x, y)])+" | "
                 else:
                     boardgame += f'  {ver_bar} '
             boardgame += f'\n {cross_bar}{row_separator * self.x_spaces}\n'
 
         return boardgame
 
+
+
+
 if __name__ == '__main__':
+    print(Pos(2, 2))
     print(repr(Board(8, 8)))
+

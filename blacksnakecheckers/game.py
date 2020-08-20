@@ -8,7 +8,7 @@ __version__ = "0.103"
 __date__ = "2020-08-18"
 
 from pyfiglet import Figlet
-from blacksnakecheckers.board import Board
+from board import Board
 
 
 class Game:
