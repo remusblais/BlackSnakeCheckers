@@ -11,14 +11,20 @@ class Position:
         self.row = int(row)
         self.column = int(column)
 
+    def __repr__(self):
+        """To print the position as a chain of characters
+
+        """
+        return f'({self.row}, {self.column})'
+
     def __hash__(self):
         """To allow position as key in a dictionary
 
         """
         return hash(str(self))
 
-    def __repr__(self):
-        """To print the position as a chain of characters
+    def __eq__(self, other):
+        """Compare actual position with original value
 
         """
-        return f'({self.row}, {self.column})'
+        return self.row == other.row and self.column == other.column

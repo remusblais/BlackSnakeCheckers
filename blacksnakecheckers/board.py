@@ -1,5 +1,6 @@
 from position import Position as Pos
 
+
 class Board:
 
     def __init__(self, rows, columns):
@@ -50,7 +51,6 @@ class Board:
             boardgame += f'{str(x)}{ver_bar} '
             for y in range(0, self.x_spaces):
                 if Pos(x, y) in self.spaces:
-                    print(112)
                     boardgame += str(self.spaces[Pos(x, y)])+" | "
                 else:
                     boardgame += f'  {ver_bar} '
@@ -62,6 +62,9 @@ class Board:
 
 
 if __name__ == '__main__':
-    print(Pos(2, 2))
-    print(repr(Board(8, 8)))
+    new_board = Board(8, 8)
+    print(new_board.__repr__())
+
+
+
 
