@@ -21,4 +21,4 @@ class Position:
         """To print the position as a chain of characters
 
         """
-        return '({}, {})'.format(self.row, self.column)
+        return f'({self.row}, {self.column})'
