@@ -11,23 +11,29 @@ class Position:
         self.row = int(row)
         self.column = int(column)
 
-    def diagonal_move(self, step=1, direction='both', limit=True):
+    def diagonal_move(self, step=0, direction='all', limit=True):
         """TBC
 
         Returns:
             list:
 
         """
-        up = [Position(self.row - step, self.column - step), Position(self.row - step, self.column + step)]
-        down =[Position(self.row + step, self.column - step), Position(self.row + step, self.column + step)]
-        both = up + down
+        result = []
+        parameters = [['-', '-'], ['-', '+'], ['+', '-'], ['+', '+']]
 
         if direction == 'up':
-            return up
-        elif direction == 'down':
-            return down
-        elif direction == 'both':
-            return both
+            parameters = parameters[:2]
+
+        if direction == 'down':
+            parameters = parameters[2:4]
+
+
+        x = 0
+        for i in enumerate(parameters):
+            result.extend(eval(f'[Position(self.row {parameters[x][0]} {step}, self.column {parameters[x][1]} {step})]'))
+            x += 1
+
+        return result
 
     def __repr__(self):
         """To print the position as a chain of characters
@@ -48,4 +54,4 @@ class Position:
         return self.row == other.row and self.column == other.column
 
 test = Position(2, 2)
-print(test.diagonal_move(4, 'down'))
+print(test.diagonal_move(2, 'all'))
