@@ -11,15 +11,22 @@ class Position:
         self.row = int(row)
         self.column = int(column)
 
-    def diagonal_move(self, step=0, direction='all', limit=True):
+    def diagonal_move(self, step=1, direction='all', limit=True):
         """TBC
+
+        Args:
+            step (int):
+            direction (str):
 
         Returns:
             list:
 
         """
         result = []
-        parameters = [['-', '-'], ['-', '+'], ['+', '-'], ['+', '+']]
+        parameters = [['-', '-'],
+                      ['-', '+'],
+                      ['+', '-'],
+                      ['+', '+']]
 
         if direction == 'up':
             parameters = parameters[:2]
@@ -27,11 +34,10 @@ class Position:
         if direction == 'down':
             parameters = parameters[2:4]
 
-
-        x = 0
-        for i in enumerate(parameters):
-            result.extend(eval(f'[Position(self.row {parameters[x][0]} {step}, self.column {parameters[x][1]} {step})]'))
-            x += 1
+        for count, _ in enumerate(parameters):
+            result.extend(eval(f'[Position('
+                               f'self.row {parameters[count][0]} {step}, '
+                               f'self.column {parameters[count][1]} {step})]'))
 
         return result
 
@@ -54,4 +60,4 @@ class Position:
         return self.row == other.row and self.column == other.column
 
 test = Position(2, 2)
-print(test.diagonal_move(2, 'all'))
+print(test.diagonal_move(1))
