@@ -16,7 +16,7 @@ class Position:
 
         Args:
             step (int):
-            direction (str):
+            direction (str): "up", "down", "all"
 
         Returns:
             list:
@@ -60,4 +60,4 @@ class Position:
         return self.row == other.row and self.column == other.column
 
 test = Position(2, 2)
-print(test.diagonal_move(1))
+print(test.diagonal_move(10, ''))
