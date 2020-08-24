@@ -1,7 +1,6 @@
 from position import Position
 from piece import Piece
 
-
 class Board:
 
     def __init__(self, rows, columns):
