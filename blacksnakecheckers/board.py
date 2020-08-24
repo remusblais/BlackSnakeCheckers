@@ -1,4 +1,5 @@
-from position import Position as Pos
+from position import Position
+from piece import Piece
 
 
 class Board:
@@ -8,30 +9,30 @@ class Board:
         self.y_spaces = rows
 
         self.spaces = {
-            Pos(7, 0): 'o',
-            Pos(7, 2): 'o',
-            Pos(7, 4): 'o',
-            Pos(7, 6): 'o',
-            Pos(6, 1): 'o',
-            Pos(6, 3): 'o',
-            Pos(6, 5): 'o',
-            Pos(6, 7): 'o',
-            Pos(5, 0): 'o',
-            Pos(5, 2): 'o',
-            Pos(5, 4): 'o',
-            Pos(5, 6): 'o',
-            Pos(2, 1): 'x',
-            Pos(2, 3): 'x',
-            Pos(2, 5): 'x',
-            Pos(2, 7): 'x',
-            Pos(1, 0): 'x',
-            Pos(1, 2): 'x',
-            Pos(1, 4): 'x',
-            Pos(1, 6): 'x',
-            Pos(0, 1): 'x',
-            Pos(0, 3): 'x',
-            Pos(0, 5): 'x',
-            Pos(0, 7): 'x',
+            Position(7, 0): Piece('white', 'pawn'),
+            Position(7, 2): Piece('white', 'pawn'),
+            Position(7, 4): Piece('white', 'pawn'),
+            Position(7, 6): Piece('white', 'pawn'),
+            Position(6, 1): Piece('white', 'pawn'),
+            Position(6, 3): Piece('white', 'pawn'),
+            Position(6, 5): Piece('white', 'pawn'),
+            Position(6, 7): Piece('white', 'pawn'),
+            Position(5, 0): Piece('white', 'pawn'),
+            Position(5, 2): Piece('white', 'pawn'),
+            Position(5, 4): Piece('white', 'pawn'),
+            Position(5, 6): Piece('white', 'pawn'),
+            Position(2, 1): Piece('black', 'pawn'),
+            Position(2, 3): Piece('black', 'pawn'),
+            Position(2, 5): Piece('black', 'pawn'),
+            Position(2, 7): Piece('black', 'pawn'),
+            Position(1, 0): Piece('black', 'pawn'),
+            Position(1, 2): Piece('black', 'pawn'),
+            Position(1, 4): Piece('black', 'pawn'),
+            Position(1, 6): Piece('black', 'pawn'),
+            Position(0, 1): Piece('black', 'pawn'),
+            Position(0, 3): Piece('black', 'pawn'),
+            Position(0, 5): Piece('black', 'pawn'),
+            Position(0, 7): Piece('black', 'pawn'),
         }
 
     def __repr__(self):
@@ -50,8 +51,8 @@ class Board:
             row_separator = f'{hor_bar * 3}{cross_bar}'
             boardgame += f'{str(x)}{ver_bar} '
             for y in range(0, self.x_spaces):
-                if Pos(x, y) in self.spaces:
-                    boardgame += str(self.spaces[Pos(x, y)])+" | "
+                if Position(x, y) in self.spaces:
+                    boardgame += str(self.spaces[Position(x, y)]) + " | "
                 else:
                     boardgame += f'  {ver_bar} '
             boardgame += f'\n {cross_bar}{row_separator * self.x_spaces}\n'
