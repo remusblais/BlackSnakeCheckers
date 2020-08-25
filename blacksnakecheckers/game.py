@@ -75,6 +75,9 @@ class Game:
         return source
     
     def validate_source(self, source):
+        """Validate the selected source
+
+        """
         return source, source
     
     def target(self):
@@ -99,6 +102,9 @@ class Game:
         return target
     
     def validate_target(self, target):
+        """Validate the selected target
+
+        """
         return target, target
 
     def victory(self, player):
