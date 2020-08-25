@@ -4,11 +4,12 @@ This is the main module where all game logic between the player(s) and computer 
 """
 
 __author__ = "Rémus Blais"
-__version__ = "0.103"
-__date__ = "2020-08-18"
+__version__ = "0.104"
+__date__ = "2020-08-24"
 
 from pyfiglet import Figlet
 from board import Board
+from position import Position
 
 
 class Game:
@@ -53,49 +54,52 @@ class Game:
             return self.turn(player)
 
     def source(self):
-        """Ask the player which source
+        """Ask the player which source piece to play
 
         """
         while True:
             pos_line = input("Source line : ")
-            pos_col = input("Source column : ")
-            '''if pos_line.isdecimal() and pos_col.isdecimal():
-                source = Position(int(pos_line), int(pos_col))
-                source_validation = (self.position_source_valide(source))
-                if not source_validation[0]:
-                    print(source_validation[1])
+            if pos_line.isdecimal() and int(pos_line) < self.rows:
+                pos_col = input("Source column : ")
+                if pos_col.isdecimal() and int(pos_col) < self.columns:
+                    source = Position(int(pos_line), int(pos_col))
+                    validation = (self.validate_source(source))
+                    if not validation[0]:
+                        print(validation[1])
+                    else:
+                        self.source_selected = source
+                        break
                 else:
-                    self.source_selected = source
-                    break
-            else:
-                print(error)'''
+                    print('wrong!!!')
 
-        #return source
+        return source
     
-    def source_validation(self):
-        pass
+    def validate_source(self, source):
+        return source, source
     
     def target(self):
-        """Ask the player which target
+        """Ask the player which target to play
 
         """
         while True:
             pos_line = input("Target line : ")
-            pos_col = input("Target column : ")
-            '''if pos_line.isdecimal() and pos_col.isdecimal():
-                target = Position(int(pos_line), int(pos_col))
-                target_validation = (self.position_cible_valide(target))
-                if not target_validation[0]:
-                    print(target_validation[1])
+            if pos_line.isdecimal() and int(pos_line) < self.rows:
+                pos_col = input("Target column : ")
+                if pos_col.isdecimal() and int(pos_col) < self.columns:
+                    target = Position(int(pos_line), int(pos_col))
+                    validation = (self.validate_target(target))
+                    if not validation[0]:
+                        print(validation[1])
+                    else:
+                        self.source_selected = target
+                        break
                 else:
-                    break
-            else:
-                print(error)'''
-                
-        #return target
+                    print('wrong!!!')
+
+        return target
     
-    def target_validation(self):
-        pass
+    def validate_target(self, target):
+        return target, target
 
     def victory(self, player):
         print(f'{player}, you are the winner!!')
