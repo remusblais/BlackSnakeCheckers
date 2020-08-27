@@ -8,7 +8,7 @@ class Piece:
         self.type = type_of_piece
 
     def pawn(self):
-        """
+        """Detect if the selected piece is pawn type
 
         Returns:
             (bool) : True is piece is pawn
@@ -17,7 +17,7 @@ class Piece:
         return self.type == "pawn"
 
     def king(self):
-        """
+        """Detect if the selected piece is king type
 
         Returns:
             (bool) : True if piece is king
@@ -26,7 +26,7 @@ class Piece:
         return self.type == "king"
 
     def white(self):
-        """
+        """Detect if the selected piece is white color
 
         Returns:
             (bool) : True if piece white
@@ -35,7 +35,7 @@ class Piece:
         return self.color == "white"
 
     def black(self):
-        """
+        """Detect if the selected piece is black color
 
         Returns:
             (bool) : True if piece is black
