@@ -20,7 +20,7 @@ class Piece:
         """
 
         Returns:
-            (bool) :
+            (bool) : True if piece is king
 
         """
         return self.type == "king"
@@ -29,7 +29,7 @@ class Piece:
         """
 
         Returns:
-            (bool) :
+            (bool) : True if piece white
 
         """
         return self.color == "white"
@@ -38,13 +38,13 @@ class Piece:
         """
 
         Returns:
-            (bool) :
+            (bool) : True if piece is black
 
         """
         return self.color == "black"
 
     def promotion(self):
-        """
+        """Promote the current piece (eg. pawn to king)
 
         """
         self.type = "king"
