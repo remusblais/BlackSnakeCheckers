@@ -46,10 +46,10 @@ class Board:
             boardgame += f'{hor_bar}{str(num)}{hor_bar}{cross_bar}'
         boardgame += '\n'
 
-        for x in range(0, self.y_spaces):
+        for x in range(self.y_spaces):
             row_separator = f'{hor_bar * 3}{cross_bar}'
             boardgame += f'{str(x)}{ver_bar} '
-            for y in range(0, self.x_spaces):
+            for y in range(self.x_spaces):
                 if Position(x, y) in self.spaces:
                     boardgame += str(self.spaces[Position(x, y)]) + " | "
                 else:
