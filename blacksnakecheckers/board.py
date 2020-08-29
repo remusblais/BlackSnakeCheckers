@@ -74,8 +74,6 @@ class Board:
         return boardgame
 
 
-
-
 if __name__ == '__main__':
     new_board = Board(8, 8)
     print(new_board.__repr__())
